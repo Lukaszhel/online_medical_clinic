@@ -14,7 +14,7 @@ import pl.zajavka.online_medical_clinic.domain.Patient;
 @Controller
 @RequiredArgsConstructor
 public class PatientChooseController {
-    private static final String PATIENT_CHOOSE = "/patient/choose";
+ /*   private static final String PATIENT_CHOOSE = "/patient/choose";
     private final DoctorService doctorService;
     private final PatientService patientService;
     private final DoctorMapper doctorMapper;
@@ -31,5 +31,5 @@ public class PatientChooseController {
         model.addAttribute("pesels", pesels);
         model.addAttribute("PeselPwzVisitNumberDTO", PeselPwzVisitNumberDTO.builder().build());
         return "patient_choose";
-    }
+    }*/
 }

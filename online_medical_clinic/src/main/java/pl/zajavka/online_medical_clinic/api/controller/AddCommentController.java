@@ -13,7 +13,7 @@ import pl.zajavka.online_medical_clinic.business.VisitService;
 @RequiredArgsConstructor
 public class AddCommentController {
 
-    private static final String ADD_COMMENT =  "/add-comment/{visitNumber}";
+   /* private static final String ADD_COMMENT =  "/add-comment/{visitNumber}";
     private static final String ADD_COMMENT_SAVE =  "/add-comment/save";
     private final VisitService visitService;
 
@@ -29,5 +29,5 @@ public class AddCommentController {
     public String saveComment(@ModelAttribute("visitDTO") VisitDTO visitDTO){
         visitService.updateVisitWithCommentByVisitNumber(visitDTO.getComment(), visitDTO.getVisitNumber());
         return "redirect:/doctor/choose";
-    }
+    }*/
 }

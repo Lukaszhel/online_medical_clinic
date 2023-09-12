@@ -2,14 +2,10 @@ package pl.zajavka.online_medical_clinic.api.controller.rest;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.zajavka.online_medical_clinic.api.dto.PeselPwzVisitNumberDTO;
 import pl.zajavka.online_medical_clinic.api.dto.VisitDTO;
 import pl.zajavka.online_medical_clinic.api.dto.VisitsDTO;
-import pl.zajavka.online_medical_clinic.api.dto.mapper.AddVisitsMapper;
 import pl.zajavka.online_medical_clinic.api.dto.mapper.VisitMapper;
-import pl.zajavka.online_medical_clinic.business.AddVisitsService;
 import pl.zajavka.online_medical_clinic.business.DoctorService;
 import pl.zajavka.online_medical_clinic.business.VisitService;
 import pl.zajavka.online_medical_clinic.domain.Doctor;
@@ -44,7 +40,7 @@ public class PatientVisitsRestController {
             @RequestParam(required = true) String pesel) {
 
         Patient patient = visitService.findPatientByPesel(pesel);
-        visitService.updateBookVisitForPatient(visitNumber, patient);
+        visitService.bookVisitForPatient(visitNumber, patient);
 
         return ResponseEntity.ok().build();
     }
@@ -75,7 +71,7 @@ public class PatientVisitsRestController {
 
         Doctor doctor = doctorService.findDoctorByPWZ(doctorPwz);
 
-        return visitService.findAvailableVisitsByDoctorPwzWhereBookedIsfalse(doctorPwz).stream()
+        return visitService.findAvailableVisitsByDoctorPwzWhereBookedIsFalse(doctorPwz).stream()
                 .map(visit -> visitMapper.mapToDTO(visit, doctor)).toList();
     }
 

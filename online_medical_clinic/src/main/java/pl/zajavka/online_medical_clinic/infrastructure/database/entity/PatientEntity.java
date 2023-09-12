@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.util.Date;
 import java.util.Set;
-
+@Builder
 @Getter
 @Setter
 @EqualsAndHashCode(of = "patientId")

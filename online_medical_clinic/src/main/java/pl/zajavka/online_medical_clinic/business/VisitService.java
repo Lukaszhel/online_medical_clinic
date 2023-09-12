@@ -24,8 +24,8 @@ public class VisitService {
     }
 
     @Transactional
-    public void updateVisitWithCommentByVisitNumber(String comment, String visitNumber) {
-        visitDAO.updateVisitWithCommentByVisitNumber(comment, visitNumber);
+    public void addCommentToVisitByVisitNumber(String comment, String visitNumber) {
+        visitDAO.addCommentToVisitByVisitNumber(comment, visitNumber);
     }
 
     @Transactional
@@ -34,13 +34,13 @@ public class VisitService {
     }
 
     @Transactional
-    public List<Visit> findAvailableVisitsByDoctorPwzWhereBookedIsfalse(String pwz) {
-        return visitDAO.findAvailableVisitsByDoctorPwzWhereBookedIsfalse(pwz);
+    public List<Visit> findAvailableVisitsByDoctorPwzWhereBookedIsFalse(String pwz) {
+        return visitDAO.findAvailableVisitsByDoctorPwzWhereBookedIsFalse(pwz);
     }
 
     @Transactional
-    public void updateBookVisitForPatient(String visitNumber, Patient patientId) {
-        visitDAO.updateBookVisitForPatient(visitNumber, patientId);
+    public void bookVisitForPatient(String visitNumber, Patient patient) {
+        visitDAO.bookVisitForPatient(visitNumber, patient);
     }
 
     @Transactional

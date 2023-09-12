@@ -28,12 +28,12 @@ class VisitsServiceSimpleTest {
     @Test
     void createVisitsFromDatesOfVisitsTest() {
 //        given
-        AddVisits addVisits = SomeFixtures.someAddVisits();
+        AddVisits addVisits = SomeFixtures.someAddVisits1();
 //        when
         List<LocalDateTime> result = addVisitsService.createVisitsDatesFromDoctorData(addVisits);
 
 //        then
-        Assertions.assertEquals(2, result.size());
+        Assertions.assertEquals(12, result.size());
     }
 
 

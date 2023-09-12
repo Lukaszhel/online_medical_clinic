@@ -20,11 +20,13 @@ public class PatientRepository implements PatientDAO {
     private final PatientEntityMapper patientEntityMapper;
     @Override
     public List<Patient> findAvailable() {
-        return patientJpaRepository.findAll().stream().map(patientEntityMapper::mapFromEntity).toList();
+        return patientJpaRepository.findAll().stream()
+                .map(patientEntityMapper::mapFromEntity).toList();
     }
 
     @Override
     public Optional<Patient> findPatientByPesel(String pesel) {
-       return patientJpaRepository.findByPesel(pesel).map(patientEntityMapper::mapFromEntity);
+       return patientJpaRepository.findByPesel(pesel)
+               .map(patientEntityMapper::mapFromEntity);
     }
 }

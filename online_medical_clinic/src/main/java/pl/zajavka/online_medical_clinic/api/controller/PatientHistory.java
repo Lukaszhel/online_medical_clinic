@@ -14,7 +14,7 @@ import pl.zajavka.online_medical_clinic.business.VisitService;
 @Controller
 @RequiredArgsConstructor
 public class PatientHistory {
-    private static final String PATIENT_HISTORY = "/patient/history";
+    /*private static final String PATIENT_HISTORY = "/patient/history";
     private static final String PATIENT_HISTORY_CANCEL = "/patient/patient/cancel_visit/{visitNumber}";
     private final VisitService visitService;
     //    private final PatientService patientService;
@@ -34,6 +34,6 @@ public class PatientHistory {
 
         visitService.withdrawTheRegistrationForVisit(visitNumber);
         return "redirect:/";
-    }
+    }*/
 
 }

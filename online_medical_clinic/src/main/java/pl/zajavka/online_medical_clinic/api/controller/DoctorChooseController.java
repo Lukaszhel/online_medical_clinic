@@ -11,7 +11,7 @@ import pl.zajavka.online_medical_clinic.business.DoctorService;
 @Controller
 @RequiredArgsConstructor
 public class DoctorChooseController {
-    private static final String DOCTOR_CHOOSE = "/doctor/choose";
+   /* private static final String DOCTOR_CHOOSE = "/doctor/choose";
 
     private final DoctorService doctorService;
     private final DoctorMapper doctorMapper;
@@ -31,7 +31,7 @@ public class DoctorChooseController {
 
     }
 
-
+*/
 
 
 }

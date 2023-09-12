@@ -24,18 +24,19 @@ public class AddVisitsService {
     private final DoctorService doctorService;
     private final VisitDAO visitDAO;
 
-    public List<LocalDateTime> createVisitsDatesFromDoctorData(AddVisits visits) {
-        Integer daysOfVisitsInARow = calculateDaysOfVisitsInARow(visits);
-        Integer minutesOfVisitsInOneDay = calculateMinutesOfVisitsInOneDay(visits);
-        Integer amountOfVisitsInOneDay = calculateAmountOfVisitsInOneDay(visits, Float.valueOf(minutesOfVisitsInOneDay));
-        LocalDateTime tempDateTime = LocalDateTime.of(visits.getDateFrom(), visits.getTimeFrom());
+    public List<LocalDateTime> createVisitsDatesFromDoctorData(AddVisits addVisits) {
+        int daysOfVisitsInARow = calculateDaysOfVisitsInARow(addVisits);
+        Integer minutesOfVisitsInOneDay = calculateMinutesOfVisitsInOneDay(addVisits);
+        Integer amountOfVisitsInOneDay = calculateAmountOfVisitsInOneDay(addVisits, Float.valueOf(minutesOfVisitsInOneDay));
+        LocalDateTime tempDateTime = LocalDateTime.of(addVisits.getDateFrom(), addVisits.getTimeFrom());
+
         List<LocalDateTime> result = new ArrayList<>();
         for (int i = 1; i <= daysOfVisitsInARow; i++) {
             for (int j = 1; j <= amountOfVisitsInOneDay; j++) {
                 result.add(tempDateTime);
-                tempDateTime = tempDateTime.plusMinutes((long)visits.getOneVisitTime());
+                tempDateTime = tempDateTime.plusMinutes((long)addVisits.getOneVisitTime());
             }
-            tempDateTime = LocalDateTime.of(visits.getDateFrom(), visits.getTimeFrom()).plusDays(i);
+            tempDateTime = LocalDateTime.of(addVisits.getDateFrom(), addVisits.getTimeFrom()).plusDays(i);
         }
         return result;
     }

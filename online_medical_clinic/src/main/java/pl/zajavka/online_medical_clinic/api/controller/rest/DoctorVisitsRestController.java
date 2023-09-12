@@ -50,7 +50,7 @@ public class DoctorVisitsRestController {
     public ResponseEntity<?> addComment(@PathVariable String visitNumber,
                                         @RequestBody String comment) {
 
-        visitService.updateVisitWithCommentByVisitNumber(comment, visitNumber);
+        visitService.addCommentToVisitByVisitNumber(comment, visitNumber);
 
         return ResponseEntity.ok().build();
     }

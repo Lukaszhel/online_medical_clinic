@@ -40,7 +40,7 @@ public interface VisitJpaRepository extends JpaRepository<VisitEntity, Integer> 
             """
     )
     @Modifying(clearAutomatically = true)
-    void updateVisitWithCommentByVisitNumber(final String comment, final String visitNumber);
+    void addCommentToVisitByVisitNumber(final String comment, final String visitNumber);
 
 
     @Query("""
@@ -57,7 +57,7 @@ public interface VisitJpaRepository extends JpaRepository<VisitEntity, Integer> 
             """
     )
     @Modifying(clearAutomatically = true)
-    void updateBookVisitForPatient(@Param("visitNumber")String visitNumber, @Param("patient")PatientEntity patient);
+    void updateVisitByAddingPatientToVisit(@Param("visitNumber")String visitNumber, @Param("patient")PatientEntity patient);
 
     @Query("""
             UPDATE VisitEntity visit
@@ -66,7 +66,7 @@ public interface VisitJpaRepository extends JpaRepository<VisitEntity, Integer> 
             """
     )
     @Modifying(clearAutomatically = true)
-    void updateBookVisitForPatient(@Param("visitNumber")String visitNumber);
+    void bookVisitForPatient(@Param("visitNumber")String visitNumber);
 
     @Query("""
             UPDATE VisitEntity visit

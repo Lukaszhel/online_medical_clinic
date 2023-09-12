@@ -2,7 +2,7 @@ package pl.zajavka.online_medical_clinic.infrastructure.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-
+@Builder
 @Getter
 @Setter
 @EqualsAndHashCode(of = "patientAddressId")

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import pl.zajavka.online_medical_clinic.business.dao.VisitDAO;
-import pl.zajavka.online_medical_clinic.domain.Doctor;
 import pl.zajavka.online_medical_clinic.domain.Patient;
 import pl.zajavka.online_medical_clinic.domain.Visit;
 import pl.zajavka.online_medical_clinic.infrastructure.database.entity.DoctorEntity;
@@ -16,7 +15,6 @@ import pl.zajavka.online_medical_clinic.infrastructure.database.repository.mappe
 import pl.zajavka.online_medical_clinic.infrastructure.database.repository.mapper.VisitEntityMapper;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Repository
@@ -51,16 +49,16 @@ public class VisitRepository implements VisitDAO {
     }
 
     @Override
-    public List<Visit> findAvailableVisitsByDoctorPwzWhereBookedIsfalse(String pwz) {
+    public List<Visit> findAvailableVisitsByDoctorPwzWhereBookedIsFalse(String pwz) {
         return visitJpaRepository.findAvailableVisitsByDoctorPwzWhereBookedIsfalse(pwz)
                 .stream().map(visitEntityMapper::mapFromEntity).toList();
     }
 
     @Override
-    public void updateBookVisitForPatient(String visitNumber, Patient patient) {
+    public void bookVisitForPatient(String visitNumber, Patient patient) {
         PatientEntity patientEntity = patientEntityMapper.mapToEntity(patient);
-        visitJpaRepository.updateBookVisitForPatient(visitNumber, patientEntity);
-        visitJpaRepository.updateBookVisitForPatient(visitNumber);
+        visitJpaRepository.updateVisitByAddingPatientToVisit(visitNumber, patientEntity);
+        visitJpaRepository.bookVisitForPatient(visitNumber);
     }
 
     @Override
@@ -69,7 +67,7 @@ public class VisitRepository implements VisitDAO {
     }
 
     @Override
-    public void updateVisitWithCommentByVisitNumber(String comment, String visitNumber) {
-        visitJpaRepository.updateVisitWithCommentByVisitNumber(comment, visitNumber);
+    public void addCommentToVisitByVisitNumber(String comment, String visitNumber) {
+        visitJpaRepository.addCommentToVisitByVisitNumber(comment, visitNumber);
     }
 }

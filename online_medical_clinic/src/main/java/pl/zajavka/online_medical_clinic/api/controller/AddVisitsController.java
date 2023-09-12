@@ -19,7 +19,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class AddVisitsController {
-    private static final String ADD_VISITS =  "/add_visits";
+/*    private static final String ADD_VISITS =  "/add_visits";
     private static final String ADD_VISITS_SAVE =  "/add_visits/save";
 
     private final AddVisitsService addVisitsService;
@@ -40,7 +40,7 @@ public class AddVisitsController {
         addVisitsService.saveVisits(visits);
 
         return "redirect:/doctor/choose";
-    }
+    }*/
 
 
 }

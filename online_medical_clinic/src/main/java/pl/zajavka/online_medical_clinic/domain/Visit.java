@@ -10,6 +10,7 @@ import java.time.OffsetDateTime;
 @EqualsAndHashCode(of = "visitNumber")
 @ToString(of = {"visitId", "visitNumber", "dateTime", "comment", "booked", "doctor", "patient"})
 public class Visit {
+
     Integer visitId;
     String visitNumber;
     OffsetDateTime dateTime;

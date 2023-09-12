@@ -1,6 +1,5 @@
 package pl.zajavka.online_medical_clinic.integration;
 
-import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ import java.util.List;
 
 @Testcontainers
 @SpringJUnitConfig(classes = {OnlineMedicalClinicApplication.class})
-@AllArgsConstructor(onConstructor = @__(@Autowired))
+//@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class VisitServiceTestIT {
    /* @Container
     static PostgreSQLContainer<?> POSTGRESQL_CONTAINER = new PostgreSQLContainer<>("postgres:15.0");
@@ -35,9 +34,11 @@ public class VisitServiceTestIT {
         registry.add("jdbc.pass", POSTGRESQL_CONTAINER::getPassword);
     }
 
-
+    @Autowired
     private VisitService visitService;
+    @Autowired
     private VisitJpaRepository visitJpaRepository;
+    @Autowired
     private VisitEntityMapper visitEntityMapper;
 
     @Test
@@ -53,7 +54,6 @@ public class VisitServiceTestIT {
 
 //        then
         Assertions.assertEquals("new comment for test", visitList.get(0).getComment());
-    }
+    }*/
 
-*/
 }

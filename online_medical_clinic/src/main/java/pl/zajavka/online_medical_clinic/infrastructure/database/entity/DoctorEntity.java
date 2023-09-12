@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Set;
-
+@Builder
 @Getter
 @Setter
 @EqualsAndHashCode(of = "doctorId")
