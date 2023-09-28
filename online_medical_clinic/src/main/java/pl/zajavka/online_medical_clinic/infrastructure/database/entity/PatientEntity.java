@@ -39,10 +39,14 @@ public class PatientEntity {
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "patient_address_id")
     private PatientAddressEntity patientAddress;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patientEntity")
     private Set<VisitEntity> visitEntitySet;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private OnlineMedicalClinicUserEntity user;
 }

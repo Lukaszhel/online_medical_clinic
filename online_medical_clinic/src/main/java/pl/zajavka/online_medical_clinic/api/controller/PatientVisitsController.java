@@ -20,8 +20,8 @@ import pl.zajavka.online_medical_clinic.domain.Patient;
 @RequiredArgsConstructor
 public class PatientVisitsController {
     private static final String PATIENT_CHOOSE = "/patient/choose";
-    private static final String PATIENT_VISITS = "/patient/visits_by_doctor";
-    private static final String PATIENT_VISITS_BOOK = "/patient/patient/book/{visitNumber}";
+    static final String PATIENT_VISITS = "/patient/visits_by_doctor";
+    static final String PATIENT_VISITS_BOOK = "/patient/patient/book/{visitNumber}";
     private static final String PATIENT_HISTORY = "/patient/history";
     private static final String PATIENT_HISTORY_CANCEL_REGISTRATION = "/patient/patient/cancel_visit/{visitNumber}";
 
@@ -53,6 +53,7 @@ public class PatientVisitsController {
         return "redirect:/";
 
     }
+
     @GetMapping(value = PATIENT_CHOOSE)
     public String choosePatient(Model model) {
         var availableDoctors = doctorService.findAvailable().stream().map(doctorMapper::mapToDTO).toList();
@@ -66,6 +67,7 @@ public class PatientVisitsController {
         model.addAttribute("PeselPwzVisitNumberDTO", PeselPwzVisitNumberDTO.builder().build());
         return "patient_choose";
     }
+
     @GetMapping(value = PATIENT_HISTORY)
     public String showHistory(@ModelAttribute("PeselPwzVisitNumberDTO") PeselPwzVisitNumberDTO peselPwzVisitNumberDTO, Model model) {
         var availableVisitsForPatientPesel = visitService.findAvailableVisitsForPatientByPesel(peselPwzVisitNumberDTO.getPesel())

@@ -30,5 +30,8 @@ public class DoctorAddressEntity {
     @Column(name = "street")
     private String street;
 
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "doctorAddress")
+    private DoctorEntity doctorEntity;
+
 
 }

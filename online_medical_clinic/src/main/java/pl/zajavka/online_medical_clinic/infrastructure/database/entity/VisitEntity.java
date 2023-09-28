@@ -9,7 +9,7 @@ import java.time.OffsetDateTime;
 @Builder
 @Getter
 @Setter
-@EqualsAndHashCode(of = "visitId")
+@EqualsAndHashCode(of = "visitNumber")
 @ToString(of = {"visitId", "visitNumber", "dateTime", "comment", "booked"})
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,19 +34,19 @@ public class VisitEntity {
     @Column(name = "booked")
     private Boolean booked;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER/*, cascade = CascadeType.ALL*/)
     @JoinColumn(name = "doctor_id")
     private DoctorEntity doctorEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER/*, cascade = CascadeType.ALL*/)
     @JoinColumn(name = "patient_id")
     private PatientEntity patientEntity;
 
 
-    public enum Completed {
+  /*  public enum Completed {
         WAIT,
         COMPLETED,
         MISSING
-    }
+    }*/
 
 }

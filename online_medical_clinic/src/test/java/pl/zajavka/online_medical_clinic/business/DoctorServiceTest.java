@@ -58,12 +58,13 @@ class DoctorServiceTest {
                 Arguments.of("7654321", SomeFixtures.someDoctor2())
         );
     }
+
     @Test
-    void thatFindDoctorByPwzShouldThrowException(){
+    void thatFindDoctorByPwzShouldThrowException() {
 //        given
         Mockito.when(doctorDAO.findByPWZ(ArgumentMatchers.anyString())).thenReturn(Optional.empty());
 //        when
-        Throwable exception = Assertions.assertThrows(NotFoundException.class, ()->doctorService.findDoctorByPWZ("1111111"));
+        Throwable exception = Assertions.assertThrows(NotFoundException.class, () -> doctorService.findDoctorByPWZ("1111111"));
 //        then
         Assertions.assertEquals("Couldn't find doctor By his PWZ: [1111111]", exception.getMessage());
 

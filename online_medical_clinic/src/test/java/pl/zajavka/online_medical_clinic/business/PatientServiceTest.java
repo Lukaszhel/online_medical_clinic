@@ -58,12 +58,13 @@ class PatientServiceTest {
                 Arguments.of("98765432101", SomeFixtures.somePatient2())
         );
     }
+
     @Test
-    void thatFindPatientByPeselThrowsExceptionCorrectly(){
+    void thatFindPatientByPeselThrowsExceptionCorrectly() {
 //        given
         Mockito.when(patientDAO.findPatientByPesel(ArgumentMatchers.anyString())).thenReturn(Optional.empty());
 //        when
-        Throwable exception = Assertions.assertThrows(NotFoundException.class, ()->patientService.findPatientByPesel("11111111111"));
+        Throwable exception = Assertions.assertThrows(NotFoundException.class, () -> patientService.findPatientByPesel("11111111111"));
 //        then
         Assertions.assertEquals("Couldn't find patient By his pesel: [11111111111]", exception.getMessage());
 

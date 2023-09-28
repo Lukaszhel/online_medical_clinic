@@ -1,5 +1,6 @@
 package pl.zajavka.online_medical_clinic.api.controller;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,6 +16,7 @@ import pl.zajavka.online_medical_clinic.business.PatientService;
 import pl.zajavka.online_medical_clinic.business.VisitService;
 import pl.zajavka.online_medical_clinic.domain.Doctor;
 import pl.zajavka.online_medical_clinic.domain.Visit;
+import pl.zajavka.online_medical_clinic.domain.exception.NotFoundException;
 import pl.zajavka.online_medical_clinic.util.SomeFixtures;
 
 import java.util.List;
@@ -73,6 +75,7 @@ class PatientVisitsControllerTest {
 //        then
         assertThat(result).isEqualTo("redirect:/");
     }
+
 
     @Test
     void tahtChoosePatientWorksCorrectly() {

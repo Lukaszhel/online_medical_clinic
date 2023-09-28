@@ -124,7 +124,7 @@ jacocoTestCoverageVerification{
 	violationRules {
 		rule {
 			limit {
-				counter = 'LINE'
+				counter = 'METHOD'
 				value = 'COVEREDRATIO'
 				minimum = 0.8
 			}

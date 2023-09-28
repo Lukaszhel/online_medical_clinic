@@ -40,12 +40,16 @@ public class DoctorEntity {
     @Column(name = "email", unique = true)
     private String email;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "doctor_address_id")
     private DoctorAddressEntity doctorAddress;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "doctorEntity")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "doctorEntity", cascade = CascadeType.ALL)
     private Set<VisitEntity> visitEntitySet;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private OnlineMedicalClinicUserEntity user;
 
     /*public enum Specialization {
         INTERNIST,

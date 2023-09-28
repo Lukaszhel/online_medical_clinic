@@ -6,7 +6,7 @@ CREATE TABLE patient
     pesel              VARCHAR(11)                NOT NULL,
     phone              VARCHAR(32)                NOT NULL,
     email              VARCHAR(32)                NOT NULL,
-    date_of_birth      DATE                       NOT NULL,
+    date_of_birth      TIMESTAMP                  NOT NULL,
     patient_address_id INT                        NOT NULL,
     PRIMARY KEY (patient_id),
     UNIQUE (pesel),

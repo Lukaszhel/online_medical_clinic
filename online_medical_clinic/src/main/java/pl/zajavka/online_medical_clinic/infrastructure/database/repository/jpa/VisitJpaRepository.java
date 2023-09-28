@@ -15,9 +15,9 @@ import java.util.Optional;
 @Repository
 public interface VisitJpaRepository extends JpaRepository<VisitEntity, Integer> {
 
-    List<VisitEntity> findAllByDoctorEntity(DoctorEntity doctorEntity);
+/*    List<VisitEntity> findAllByDoctorEntity(DoctorEntity doctorEntity);
 
-    Optional<VisitEntity> findByVisitNumber(String visitNumber);
+    Optional<VisitEntity> findByVisitNumber(String visitNumber);*/
 
     @Query("""
             SELECT visit FROM VisitEntity visit
@@ -77,4 +77,3 @@ public interface VisitJpaRepository extends JpaRepository<VisitEntity, Integer> 
     @Modifying(clearAutomatically = true)
     void withdrawTheRegistrationForVisit(String visitNumber);
 }
-//    AND visit.booked = TRUE

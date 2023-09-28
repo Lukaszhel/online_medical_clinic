@@ -80,7 +80,7 @@ public class DoctorVisitsRestController {
 
         AddVisits addVisits = addVisitsMapper.mapFromDTO(addVisitsDTO);
         List<LocalDateTime> dates = addVisitsService.createVisitsDatesFromDoctorData(addVisits);
-        List<Visit> visits = addVisitsService.createVisits(dates, addVisits);
+        List<Visit> visits = addVisitsService.createVisits(dates, doctorPwz);
         addVisitsService.saveVisits(visits);
 
         return visitService.findAvailableVisitsForDoctorPwz(doctorPwz).stream()

@@ -123,7 +123,7 @@ class DoctorVisitsControllerTest {
 //        Mockito.when(addVisitsMapper.mapFromDTO(addVisitsDTO)).thenReturn(addVisits);
         when(addVisitsMapper.mapFromDTO(any(AddVisitsDTO.class))).thenReturn(addVisits);
         when(addVisitsService.createVisitsDatesFromDoctorData(addVisits)).thenReturn(dates);
-        when(addVisitsService.createVisits(dates, addVisits)).thenReturn(visits);
+        when(addVisitsService.createVisits(dates, addVisits.getDoctorPWZ())).thenReturn(visits);
 //        when
         String result = doctorVisitsController.saveVisits(addVisitsDTO);
 //        then
